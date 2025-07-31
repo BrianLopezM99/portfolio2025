@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, Shield, Smartphone, Globe, Server } from 'lucide-react';
+import { ExternalLink, Github, Shield, Smartphone, Globe, Server, Terminal } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -7,57 +7,79 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Security Platform",
-      description: "Full-stack e-commerce platform with integrated security monitoring and penetration testing automation.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["React", "Node.js", "MongoDB", "Pentesting"],
-      category: "fullstack",
-      tech: ["React", "Express", "MongoDB", "Burp Suite"]
+      title: "Chatbot MVP",
+      description: "Simple Chatbot built with Flutter (MVP).",
+      image: "https://www.aceinfoway.com/blog/wp-content/uploads/2020/01/chatbot.jpg",
+      tags: ["Flutter", "Mobile"],
+      category: "mobile",
+      tech: ["Flutter", "Dart"],
+      link: "https://www.linkedin.com/posts/brian-lm_flutter-bloc-flutterbloc-activity-7216220120682037249-Hyj5?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC32AewBWzZ_K2io9qYURYkMdaPYSGINf5o",
+      github: "https://github.com/BrianLopezM99/flutterchatbot"
     },
     {
       id: 2,
-      title: "Mobile Banking Security Audit",
-      description: "Comprehensive security assessment of a Flutter-based banking app, identifying critical vulnerabilities.",
-      image: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["Flutter", "Firebase", "Pentesting", "Mobile Security"],
-      category: "security",
-      tech: ["Flutter", "Firebase", "OWASP", "Metasploit"]
+      title: "Medical Platform with Chatbot",
+      description: "Medical Platform with Chatbot and patient management built with Flutter web. Have a chatbot that ask you about your medical history and provide information about the platform.",
+      image: "https://procoders.tech/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/03/How-to-Make-a-Medical-App-%E2%80%93-Practical-To-Do-Guide-for-2023-1700x880.png.webp",
+      tags: ["Flutter", "AI", "Web"],
+      category: "frontend",
+      tech: ["Flutter", "Dart", "API Integration", "Patient Management", "Chatbot", "AI"],
+      link: "https://zesty-swan-405af3.netlify.app/",
+      github: "https://github.com/BrianLopezM99/medical_onboarding_app"
     },
     {
       id: 3,
-      title: "Real-Time Chat Application",
-      description: "Secure real-time messaging platform with end-to-end encryption and vulnerability monitoring.",
-      image: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["Next.js", "WebSocket", "Security"],
-      category: "frontend",
-      tech: ["Next.js", "Socket.io", "Encryption", "JWT"]
+      title: "Raspberry Pi HID Keyboard",
+      description: "Raspberry Pi HID Keyboard built with Bash",
+      image: "https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/12/zero.png?resize=411%2C222&quality=100&strip=all&ssl=1",
+      tags: ["Bash", "Automation"],
+      category: "security",
+      tech: ["Bash", "Automation"],
+      link: "https://www.linkedin.com/posts/brian-lm_raspberrypi-hardwarehacking-hidattack-activity-7314560234381864960-6FFM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC32AewBWzZ_K2io9qYURYkMdaPYSGINf5o",
+      github: "https://github.com/BrianLopezM99/raspberry-zero-HID-Keyboard-Emulation-Attack"
     },
     {
       id: 4,
-      title: "Network Vulnerability Scanner",
-      description: "Automated network scanning tool built with Node.js, integrating Nmap and custom vulnerability checks.",
-      image: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["Node.js", "Python", "Nmap", "Automation"],
-      category: "security",
-      tech: ["Node.js", "Python", "Nmap", "Linux"]
+      title: "Job Board",
+      description: "Job Board built with React and Firebase for job seekers and employers.",
+      image: "https://www.betterteam.com/images/betterteam-student-job-board-2400x2400-20220811.jpg?crop=4:3,smart&width=1200&dpr=2&format=pjpg&auto=webp&quality=85",
+      tags: ["React", "Firebase", "Full Stack", ],
+      category: "fullstack",
+      tech: ["React", "Firebase", "API Integration"],
+      link: "https://adoring-turing-724c86.netlify.app/"
     },
     {
       id: 5,
-      title: "Task Management Dashboard",
-      description: "Modern project management dashboard with role-based access control and security hardening.",
-      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tags: ["React", "TailwindCSS", "Express", "Security"],
-      category: "fullstack",
-      tech: ["React", "TailwindCSS", "Express", "JWT"]
+      title: "TiendasJumbo Web Scraper",
+      description: "Web scraper for TiendasJumbo.com to extract product information and prices.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDdAwCHatma4vzggTWyZnz9GPSxIDLdUmzMQ&s",
+      tags: ["Python", "Docker", "Backend", "Web Scraping"],
+      category: "backend",
+      tech: ["Python", "Docker", "API Integration"],
+      link: "https://github.com/BrianLopezM99/tiendasjumbo-scrapper",
+      github: "https://github.com/BrianLopezM99/tiendasjumbo-scrapper"
     },
     {
       id: 6,
-      title: "Cross-Platform Fitness App",
-      description: "Flutter-based fitness tracking app with secure user authentication and data protection.",
-      image: "https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title: "Walmart Web Scraper",
+      description: "Web scraper for Walmart.com to extract product information and prices.",
+      image: "https://hasdata.com/_astro/preview.DzLuzmEq.png",
+      tags: ["Python", "Docker", "Backend", "Web Scraping"],
+      category: "backend",
+      tech: ["Python", "Docker", "API Integration"],
+      link: "https://github.com/BrianLopezM99/PT-webscraping",
+      github: "https://github.com/BrianLopezM99/PT-webscraping"
+    },
+    {
+      id: 7,
+      title: "Mobile app for medics",
+      description: "Mobile app for medics to manage their patients and appointments.",
+      image: "https://images.ctfassets.net/63bmaubptoky/kpVp8pSRCLiGbSqQJeZ6pU3YNAC1sHJcm8UHEtotfB4/817df1ef22c32c63ccb14a6e7871e8b2/aplicaciones-medicas-ES-Capterra-header.png",
       tags: ["Flutter", "Firebase", "Mobile"],
       category: "mobile",
-      tech: ["Flutter", "Firebase", "Dart", "API Integration"]
+      tech: ["Flutter", "Firebase", "Dart", "API Integration"],
+      link: "https://www.linkedin.com/posts/brian-lm_flutter-desarrollomaejvil-riverpod-activity-7353165439914442754-Y9fa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC32AewBWzZ_K2io9qYURYkMdaPYSGINf5o",
+      github: "https://github.com/BrianLopezM99/mvpdentapp"
     }
   ];
 
@@ -66,7 +88,8 @@ const Projects = () => {
     { key: 'fullstack', label: 'Full Stack' },
     { key: 'security', label: 'Security' },
     { key: 'frontend', label: 'Frontend' },
-    { key: 'mobile', label: 'Mobile' }
+    { key: 'mobile', label: 'Mobile' },
+    { key: 'backend', label: 'Backend/API' },
   ];
 
   const filteredProjects = filter === 'all' 
@@ -83,9 +106,12 @@ const Projects = () => {
         return <Server className="w-4 h-4" />;
       case 'flutter':
         return <Smartphone className="w-4 h-4" />;
-      case 'pentesting':
       case 'security':
         return <Shield className="w-4 h-4" />;
+      case 'backend':
+        return <Terminal className="w-4 h-4" />;
+      case 'ai':
+        return <Terminal className="w-4 h-4" />;
       default:
         return <Globe className="w-4 h-4" />;
     }
@@ -139,10 +165,14 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="p-2 bg-blue-500/80 hover:bg-blue-500 rounded-full transition-colors">
-                    <ExternalLink className="w-4 h-4 text-white" />
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="w-4 h-4 text-white" />
+                    </a>
                   </button>
                   <button className="p-2 bg-gray-800/80 hover:bg-gray-700 rounded-full transition-colors">
-                    <Github className="w-4 h-4 text-white" />
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-4 h-4 text-white" />
+                    </a>
                   </button>
                 </div>
               </div>

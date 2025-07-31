@@ -37,8 +37,8 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-2xl font-bold text-white">
-            <span className="text-blue-400">Dev</span>
-            <span className="text-green-400">Sec</span>
+            <span className="text-blue-400">Brian</span>
+            <span className="text-green-400">Lopez</span>
           </div>
 
           {/* Desktop Menu */}

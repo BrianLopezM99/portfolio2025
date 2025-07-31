@@ -1,4 +1,3 @@
-import React from 'react';
 import { Code, Server, Smartphone, Shield, Globe, Database, Terminal, Lock } from 'lucide-react';
 
 const Skills = () => {
@@ -21,7 +20,7 @@ const Skills = () => {
       skills: [
         { name: "Node.js", level: 88 },
         { name: "Express", level: 85 },
-        { name: "REST APIs", level: 90 },
+        { name: "Python", level: 90 },
         { name: "MongoDB", level: 80 }
       ]
     },
@@ -31,9 +30,9 @@ const Skills = () => {
       color: "purple",
       skills: [
         { name: "Flutter", level: 85 },
-        { name: "Firebase", level: 80 },
-        { name: "Dart", level: 83 },
-        { name: "Mobile UI/UX", level: 78 }
+        { name: "React Native", level: 80 },
+        { name: "Dart", level: 85 },
+        { name: "Mobile UI/UX", level: 90 }
       ]
     },
     {
@@ -44,7 +43,7 @@ const Skills = () => {
         { name: "Linux", level: 88 },
         { name: "Nmap", level: 85 },
         { name: "Burp Suite", level: 82 },
-        { name: "Metasploit", level: 80 }
+        { name: "Web Penetration Testing", level: 80 }
       ]
     }
   ];
@@ -143,7 +142,7 @@ const Skills = () => {
           <div className="flex flex-wrap justify-center gap-4">
             {[
               'Git', 'Docker', 'AWS', 'PostgreSQL', 'Python', 'Wireshark', 
-              'OWASP', 'Kali Linux', 'JWT', 'OAuth', 'GraphQL', 'Redis'
+              'OWASP', 'Kali Linux', 'JWT', 'OAuth', 'GraphQL', 'SQLite', 'Firebase'
             ].map((tech, index) => (
               <div
                 key={index}

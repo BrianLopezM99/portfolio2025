@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Shield, CheckCircle, ExternalLink } from 'lucide-react';
+import { Award, Shield, CheckCircle, ExternalLink, Zap } from 'lucide-react';
 
 const Certifications = () => {
   const certifications = [
@@ -7,11 +7,11 @@ const Certifications = () => {
       id: 1,
       name: "eLearnSecurity Junior Penetration Tester (eJPT)",
       issuer: "eLearnSecurity",
-      date: "2023",
+      date: "2025",
       description: "Comprehensive hands-on certification covering penetration testing methodologies, network security assessment, and ethical hacking techniques.",
       skills: ["Network Penetration Testing", "Web Application Security", "Host & Network Auditing", "Information Gathering"],
       verified: true,
-      credentialId: "eJPT-2023-XXXX"
+      credentialId: "eJPT-2025-XXXX"
     }
   ];
 
@@ -63,9 +63,9 @@ const Certifications = () => {
                         {cert.verified && (
                           <>
                             <span>•</span>
-                            <span className="flex items-center space-x-1 text-green-400">
-                              <CheckCircle className="w-4 h-4" />
-                              <span>Verified</span>
+                            <span className="flex items-center space-x-1 text-orange-400">
+                              <Zap className="w-4 h-4" />
+                              <span>In progress (Aug 2025)</span>
                             </span>
                           </>
                         )}
@@ -115,7 +115,7 @@ const Certifications = () => {
               Currently preparing for additional certifications including OSCP and CEH to further enhance my cybersecurity expertise.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['OSCP (In Progress)', 'CEH (Planned)', 'AWS Security (Planned)'].map((cert, index) => (
+              {['OSCP (Planned)', 'ICCA (Planned)', 'AWS Security (Planned)'].map((cert, index) => (
                 <span
                   key={index}
                   className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm border border-blue-500/30"

@@ -16,31 +16,43 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+  
+    const response = await fetch("https://formspree.io/f/mwpqqnlv", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+  
+    if (response.ok) {
+      alert("Mensaje enviado con éxito");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      alert("Hubo un error al enviar el mensaje");
+    }
   };
+  
 
   const socialLinks = [
     {
       icon: <Github className="w-6 h-6" />,
       label: "GitHub",
-      href: "#",
+      href: "https://github.com/BrianLopezM99",
       color: "hover:text-gray-300"
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       label: "LinkedIn", 
-      href: "#",
+      href: "https://www.linkedin.com/in/brian-lm/",
       color: "hover:text-blue-400"
     },
     {
       icon: <Mail className="w-6 h-6" />,
       label: "Email",
-      href: "mailto:contact@example.com",
+      href: "mailto:lopez_brian_22@hotmail.com",
       color: "hover:text-green-400"
     }
   ];
@@ -80,7 +92,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Email</h4>
-                  <p className="text-gray-400">contact@example.com</p>
+                  <p className="text-gray-400">lopez_brian_22@hotmail.com</p>
                 </div>
               </div>
 

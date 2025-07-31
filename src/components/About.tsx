@@ -1,5 +1,6 @@
 import React from 'react';
 import { User, Code2, Shield, Zap } from 'lucide-react';
+import profile from '../assets/profile.jpg';
 
 const About = () => {
   return (
@@ -19,7 +20,8 @@ const About = () => {
             {/* Profile Image Placeholder */}
             <div className="relative">
               <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-2xl border border-gray-700 flex items-center justify-center">
-                <User className="w-32 h-32 text-gray-400" />
+                {/* <User className="w-32 h-32 text-gray-400" /> */}
+                <img src={profile} alt="Profile" className="w-full h-full object-cover rounded-2xl" />
               </div>
               <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full border border-blue-500/30 flex items-center justify-center">
                 <Code2 className="w-8 h-8 text-blue-400" />
@@ -43,7 +45,7 @@ const About = () => {
 
               <p className="text-gray-300 text-lg leading-relaxed">
                 But building wasn't enough—I wanted to understand how things could break. This curiosity 
-                led me to cybersecurity, where I earned my <span className="text-green-400 font-semibold">eJPT certification</span> 
+                led me to cybersecurity, where I earned my <span className="text-green-400 font-semibold">eJPT certification </span> 
                 and developed expertise in penetration testing and ethical hacking.
               </p>
 

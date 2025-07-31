@@ -9,8 +9,8 @@ const Footer = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2 mb-6 md:mb-0">
             <div className="text-2xl font-bold">
-              <span className="text-blue-400">Dev</span>
-              <span className="text-green-400">Sec</span>
+              <span className="text-blue-400">Brian</span>
+              <span className="text-green-400">Lopez</span>
             </div>
             <div className="flex items-center space-x-1 text-gray-400">
               <Code className="w-4 h-4" />
@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex items-center space-x-2 text-gray-400">
             <span>Made with</span>
             <Heart className="w-4 h-4 text-red-400" />
-            <span>© 2024 All rights reserved.</span>
+            <span>© 2025 All rights reserved.</span>
           </div>
 
           {/* Quick Links */}
