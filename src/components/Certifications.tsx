@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Shield, CheckCircle, ExternalLink, Zap } from 'lucide-react';
+import { Award, Shield, CheckCircle, ExternalLink, Zap, Link } from 'lucide-react';
 
 const Certifications = () => {
   const certifications = [
@@ -11,7 +11,7 @@ const Certifications = () => {
       description: "Comprehensive hands-on certification covering penetration testing methodologies, network security assessment, and ethical hacking techniques.",
       skills: ["Network Penetration Testing", "Web Application Security", "Host & Network Auditing", "Information Gathering"],
       verified: true,
-      credentialId: "eJPT-2025-XXXX"
+      credentialId: "157697897"
     }
   ];
 
@@ -98,10 +98,16 @@ const Certifications = () => {
                       <span className="text-gray-400 text-sm">Credential ID:</span>
                       <span className="text-white font-mono ml-2">{cert.credentialId}</span>
                     </div>
-                    <button className="flex items-center space-x-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors duration-200">
-                      <ExternalLink className="w-4 h-4" />
-                      <span>Verify</span>
-                    </button>
+                    <a
+                      href="https://certs.ine.com/d780244c-b95e-401f-8795-14d4d44f7355#acc.bmktZQau"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center space-x-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors duration-200"
+                    >
+                      <ExternalLink className="w-4 h-4 m-2" />
+                      Verify
+                    </a>
+
                   </div>
                 </div>
               </div>
