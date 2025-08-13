@@ -11,7 +11,21 @@ const Certifications = () => {
       description: "Comprehensive hands-on certification covering penetration testing methodologies, network security assessment, and ethical hacking techniques.",
       skills: ["Network Penetration Testing", "Web Application Security", "Host & Network Auditing", "Information Gathering"],
       verified: true,
-      credentialId: "157697897"
+      credentialId: "157697897",
+      status: "Completed (Aug 2025)",
+      pending: false,
+    },
+    {
+      id: 2,
+      name: "Web Application Penetration Tester (eWPTX)",
+      issuer: "eLearnSecurity",
+      date: "xx/xx",
+      description: "Hands-on certification in web application penetration testing, covering modern vulnerabilities and exploitation techniques.",
+      skills: ["Web Application Penetration Testing", "Vulnerability Assessment", "Exploitation Techniques", "Information Gathering"],
+      verified: true,
+      credentialId: "xxxxxxxxx",
+      status: "In Progress",
+      pending: true,
     }
   ];
 
@@ -63,9 +77,11 @@ const Certifications = () => {
                         {cert.verified && (
                           <>
                             <span>•</span>
-                            <span className="flex items-center space-x-1 text-orange-400">
-                              <Zap className="w-4 h-4" />
-                              <span>In progress (Aug 2025)</span>
+                            <span
+                              className={`flex items-center space-x-1 ${cert.pending ? "text-orange-400" : " text-green-400"}`}
+                            >
+                              {cert.pending ? <Zap className="w-4 h-4" /> : <CheckCircle className="w-4 h-4" />}
+                              <span>{cert.status}</span>
                             </span>
                           </>
                         )}
