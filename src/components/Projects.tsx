@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ExternalLink, Github, Shield, Smartphone, Globe, Server, Terminal } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Projects = () => {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState('all');
 
   const projects = [
     {
       id: 1,
       title: "Chatbot MVP",
-      description: "Simple Chatbot built with Flutter (MVP).",
+      descriptionKey: "project_descriptions.chatbot_mvp",
       image: "https://www.aceinfoway.com/blog/wp-content/uploads/2020/01/chatbot.jpg",
       tags: ["Flutter", "Mobile"],
       category: "mobile",
@@ -19,7 +21,7 @@ const Projects = () => {
     {
       id: 2,
       title: "Medical Platform with Chatbot",
-      description: "Medical Platform with Chatbot and patient management built with Flutter web. Have a chatbot that ask you about your medical history and provide information about the platform.",
+      descriptionKey: "project_descriptions.medical_platform",
       image: "https://procoders.tech/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2023/03/How-to-Make-a-Medical-App-%E2%80%93-Practical-To-Do-Guide-for-2023-1700x880.png.webp",
       tags: ["Flutter", "AI", "Web"],
       category: "frontend",
@@ -30,7 +32,7 @@ const Projects = () => {
     {
       id: 3,
       title: "Raspberry Pi HID Keyboard",
-      description: "Raspberry Pi HID Keyboard built with Bash",
+      descriptionKey: "project_descriptions.raspberry_pi",
       image: "https://i0.wp.com/randomnerdtutorials.com/wp-content/uploads/2015/12/zero.png?resize=411%2C222&quality=100&strip=all&ssl=1",
       tags: ["Bash", "Automation"],
       category: "security",
@@ -41,9 +43,9 @@ const Projects = () => {
     {
       id: 4,
       title: "Job Board",
-      description: "Job Board built with React and Firebase for job seekers and employers.",
+      descriptionKey: "project_descriptions.job_board",
       image: "https://www.betterteam.com/images/betterteam-student-job-board-2400x2400-20220811.jpg?crop=4:3,smart&width=1200&dpr=2&format=pjpg&auto=webp&quality=85",
-      tags: ["React", "Firebase", "Full Stack", ],
+      tags: ["React", "Firebase", "Full Stack"],
       category: "fullstack",
       tech: ["React", "Firebase", "API Integration"],
       link: "https://adoring-turing-724c86.netlify.app/"
@@ -51,7 +53,7 @@ const Projects = () => {
     {
       id: 5,
       title: "TiendasJumbo Web Scraper",
-      description: "Web scraper for TiendasJumbo.com to extract product information and prices.",
+      descriptionKey: "project_descriptions.tiendasjumbo",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDdAwCHatma4vzggTWyZnz9GPSxIDLdUmzMQ&s",
       tags: ["Python", "Docker", "Backend", "Web Scraping"],
       category: "backend",
@@ -62,7 +64,7 @@ const Projects = () => {
     {
       id: 6,
       title: "Walmart Web Scraper",
-      description: "Web scraper for Walmart.com to extract product information and prices.",
+      descriptionKey: "project_descriptions.walmart",
       image: "https://hasdata.com/_astro/preview.DzLuzmEq.png",
       tags: ["Python", "Docker", "Backend", "Web Scraping"],
       category: "backend",
@@ -73,7 +75,7 @@ const Projects = () => {
     {
       id: 7,
       title: "Mobile app for medics",
-      description: "Mobile app for medics to manage their patients and appointments.",
+      descriptionKey: "project_descriptions.medical_app",
       image: "https://images.ctfassets.net/63bmaubptoky/kpVp8pSRCLiGbSqQJeZ6pU3YNAC1sHJcm8UHEtotfB4/817df1ef22c32c63ccb14a6e7871e8b2/aplicaciones-medicas-ES-Capterra-header.png",
       tags: ["Flutter", "Firebase", "Mobile"],
       category: "mobile",
@@ -84,12 +86,12 @@ const Projects = () => {
   ];
 
   const filters = [
-    { key: 'all', label: 'All Projects' },
-    { key: 'fullstack', label: 'Full Stack' },
-    { key: 'security', label: 'Security' },
-    { key: 'frontend', label: 'Frontend' },
-    { key: 'mobile', label: 'Mobile' },
-    { key: 'backend', label: 'Backend/API' },
+    { key: 'all', label: t('all_projects') },
+    { key: 'fullstack', label: t('full_stack') },
+    { key: 'security', label: t('security') },
+    { key: 'frontend', label: t('frontend') },
+    { key: 'mobile', label: t('mobile') },
+    { key: 'backend', label: t('backend') },
   ];
 
   const filteredProjects = filter === 'all' 
@@ -123,11 +125,11 @@ const Projects = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-              Featured Projects
+              {t('projects_title')}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A showcase of projects that demonstrate my expertise in both development and cybersecurity
+            {t('projects_subtitle')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full mt-6"></div>
         </div>
@@ -181,8 +183,8 @@ const Projects = () => {
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-                  {project.description}
+                <p className="text-gray-400 text-sm">
+                  {t(project.descriptionKey)}
                 </p>
 
                 {/* Tech Stack */}

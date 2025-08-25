@@ -1,7 +1,9 @@
-import React from 'react';
 import { Heart, Code, Shield } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-gray-900 border-t border-gray-800 py-12">
       <div className="container mx-auto px-6">
@@ -21,9 +23,9 @@ const Footer = () => {
 
           {/* Copyright */}
           <div className="flex items-center space-x-2 text-gray-400">
-            <span>Made with</span>
+            <span>{t('made_with')}</span>
             <Heart className="w-4 h-4 text-red-400" />
-            <span>© 2025 All rights reserved.</span>
+            <span> 2025 {t('all_rights_reserved')}.</span>
           </div>
 
           {/* Quick Links */}
@@ -32,19 +34,19 @@ const Footer = () => {
               onClick={() => document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
             >
-              Home
+              {t('nav_home')}
             </button>
             <button 
               onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-gray-400 hover:text-green-400 transition-colors duration-200"
             >
-              Projects
+              {t('nav_projects')}
             </button>
             <button 
               onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="text-gray-400 hover:text-purple-400 transition-colors duration-200"
             >
-              Contact
+              {t('nav_contact')}
             </button>
           </div>
         </div>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Github, Linkedin, Send, MapPin, Phone } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,10 +30,10 @@ const Contact = () => {
     });
   
     if (response.ok) {
-      alert("Mensaje enviado con éxito");
+      alert(t('message_sent'));
       setFormData({ name: '', email: '', subject: '', message: '' });
     } else {
-      alert("Hubo un error al enviar el mensaje");
+      alert(t('message_error'));
     }
   };
   
@@ -63,11 +65,11 @@ const Contact = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-              Get In Touch
+              {t('contact_title')}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ready to collaborate on your next project? Let's discuss how I can help secure and build your applications.
+            {t('contact_ready')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full mt-6"></div>
         </div>
@@ -76,11 +78,9 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">Let's Start a Conversation</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">{t('conversation_title')}</h3>
               <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                Whether you need a secure web application, a penetration test, or want to discuss 
-                cybersecurity best practices, I'm here to help. I bring both development expertise 
-                and security mindset to every project.
+                {t('conversation_text')}
               </p>
             </div>
 
@@ -91,7 +91,7 @@ const Contact = () => {
                   <Mail className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Email</h4>
+                  <h4 className="text-white font-semibold">{t('email')}</h4>
                   <p className="text-gray-400">lopez_brian_22@hotmail.com</p>
                 </div>
               </div>
@@ -101,8 +101,8 @@ const Contact = () => {
                   <MapPin className="w-6 h-6 text-green-400" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Location</h4>
-                  <p className="text-gray-400">Available for Remote Work</p>
+                  <h4 className="text-white font-semibold">{t('location')}</h4>
+                  <p className="text-gray-400">{t('available_remote')}</p>
                 </div>
               </div>
 
@@ -111,15 +111,15 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-purple-400" />
                 </div>
                 <div>
-                  <h4 className="text-white font-semibold">Response Time</h4>
-                  <p className="text-gray-400">Within 24 hours</p>
+                  <h4 className="text-white font-semibold">{t('response_time')}</h4>
+                  <p className="text-gray-400">{t('within_24h')}</p>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
             <div>
-              <h4 className="text-white font-semibold mb-4">Connect With Me</h4>
+              <h4 className="text-white font-semibold mb-4">{t('connect_with_me')}</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((link, index) => (
                   <a
@@ -137,12 +137,12 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-gray-800 rounded-xl p-8 border border-gray-700">
-            <h3 className="text-2xl font-bold text-white mb-6">Send Me a Message</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">{t('send_me_message')}</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-gray-300 font-medium mb-2">
-                    Name
+                    {t('your_name')}
                   </label>
                   <input
                     type="text"
@@ -152,12 +152,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="Your Name"
+                    placeholder={t('placeholder_name')}
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-gray-300 font-medium mb-2">
-                    Email
+                    {t('your_email')}
                   </label>
                   <input
                     type="email"
@@ -167,14 +167,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="your.email@example.com"
+                    placeholder={t('placeholder_email')}
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="subject" className="block text-gray-300 font-medium mb-2">
-                  Subject
+                  {t('your_subject')}
                 </label>
                 <input
                   type="text"
@@ -184,13 +184,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                  placeholder="Project Discussion / Security Consultation / etc."
+                  placeholder={t('placeholder_subject')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-gray-300 font-medium mb-2">
-                  Message
+                  {t('your_message')}
                 </label>
                 <textarea
                   id="message"
@@ -200,7 +200,7 @@ const Contact = () => {
                   required
                   rows={5}
                   className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors resize-none"
-                  placeholder="Tell me about your project, security needs, or how I can help..."
+                  placeholder={t('placeholder_message')}
                 ></textarea>
               </div>
 
@@ -209,7 +209,7 @@ const Contact = () => {
                 className="w-full bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold py-4 px-6 rounded-lg hover:from-blue-600 hover:to-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <Send className="w-5 h-5" />
-                <span>Send Message</span>
+                <span>{t('send_message')}</span>
               </button>
             </form>
           </div>

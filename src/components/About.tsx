@@ -1,15 +1,16 @@
-import React from 'react';
-import { User, Code2, Shield, Zap } from 'lucide-react';
+import { Code2, Shield, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import profile from '../assets/profile.jpg';
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <section id="about" className="py-20 bg-gray-800/50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-              About Me
+              {t('about_title')}
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full"></div>
@@ -34,41 +35,46 @@ const About = () => {
             {/* About Content */}
             <div className="space-y-6">
               <h3 className="text-3xl font-bold text-white mb-4">
-                Where Development Meets Security
+                {t('about_heading')}
               </h3>
               
-              <p className="text-gray-300 text-lg leading-relaxed">
-                My journey in tech began with a fascination for building things that work beautifully. 
-                Over <span className="text-blue-400 font-semibold">3 years of experience</span>, I've crafted 
-                web and mobile applications using modern technologies like React, Next.js, and Flutter.
-              </p>
+              <p 
+                className="text-gray-300 text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{ 
+                  __html: t('about_paragraph1')
+                    .replace('{{years}}', `<span class="text-blue-400 font-semibold">${t('years_experience')}</span>`)
+                }}
+              />
 
-              <p className="text-gray-300 text-lg leading-relaxed">
-                But building wasn't enough—I wanted to understand how things could break. This curiosity 
-                led me to cybersecurity, where I earned my <span className="text-green-400 font-semibold">eJPT certification </span> 
-                and developed expertise in penetration testing and ethical hacking.
-              </p>
+              <p 
+                className="text-gray-300 text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{ 
+                  __html: t('about_paragraph2')
+                    .replace('{{certification}}', `<span class="text-green-400 font-semibold">${t('ejpt_certification')}</span>`)
+                }}
+              />
 
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Today, I bring a unique perspective to every project: 
-                <span className="text-blue-400 font-semibold"> I build secure by design</span> and 
-                <span className="text-green-400 font-semibold"> test with an attacker's mindset</span>. 
-                This dual expertise ensures the applications I create are not just functional and beautiful, 
-                but also resilient against real-world threats.
-              </p>
+              <p 
+                className="text-gray-300 text-lg leading-relaxed"
+                dangerouslySetInnerHTML={{ 
+                  __html: t('about_paragraph3')
+                    .replace('{{secureByDesign}}', `<span class="text-blue-400 font-semibold">${t('secure_by_design')}</span>`)
+                    .replace('{{testWithMindset}}', `<span class="text-green-400 font-semibold">${t('test_with_mindset')}</span>`)
+                }}
+              />
 
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center space-x-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30">
                   <Code2 className="w-5 h-5 text-blue-400" />
-                  <span className="text-blue-400 font-medium">Full Stack Developer</span>
+                  <span className="text-blue-400 font-medium">{t('full_stack_developer')}</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-green-500/20 px-4 py-2 rounded-full border border-green-500/30">
                   <Shield className="w-5 h-5 text-green-400" />
-                  <span className="text-green-400 font-medium">Ethical Hacker</span>
+                  <span className="text-green-400 font-medium">{t('ethical_hacker')}</span>
                 </div>
                 <div className="flex items-center space-x-2 bg-purple-500/20 px-4 py-2 rounded-full border border-purple-500/30">
                   <Zap className="w-5 h-5 text-purple-400" />
-                  <span className="text-purple-400 font-medium">Security-First Approach</span>
+                  <span className="text-purple-400 font-medium">{t('security_first_approach')}</span>
                 </div>
               </div>
             </div>

@@ -1,9 +1,11 @@
-import { Code, Server, Smartphone, Shield, Globe, Database, Terminal, Lock } from 'lucide-react';
+import { Server, Smartphone, Shield, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Skills = () => {
+  const { t } = useTranslation();
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: t('frontend_dev'),
       icon: <Globe className="w-8 h-8" />,
       color: "blue",
       skills: [
@@ -14,7 +16,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Backend Development",
+      title: t('backend_dev'),
       icon: <Server className="w-8 h-8" />,
       color: "green",
       skills: [
@@ -25,7 +27,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Mobile Development",
+      title: t('mobile_dev'),
       icon: <Smartphone className="w-8 h-8" />,
       color: "purple",
       skills: [
@@ -36,7 +38,7 @@ const Skills = () => {
       ]
     },
     {
-      title: "Cybersecurity & Pentesting",
+      title: t('cybersecurity'),
       icon: <Shield className="w-8 h-8" />,
       color: "red",
       skills: [
@@ -84,11 +86,11 @@ const Skills = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-              Technical Skills
+              {t('skills_title')}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A comprehensive toolkit spanning development and cybersecurity domains
+            {t('skills_subtitle')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full mt-6"></div>
         </div>
@@ -137,7 +139,7 @@ const Skills = () => {
         {/* Additional Skills Grid */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold text-center mb-8 text-gray-300">
-            Additional Technologies & Tools
+            {t('additional_skills')}
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
             {[

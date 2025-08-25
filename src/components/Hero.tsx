@@ -1,7 +1,8 @@
-import React from 'react';
 import { Shield, Code, ArrowDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const scrollToAbout = () => {
     const element = document.querySelector('#about');
     if (element) {
@@ -33,19 +34,23 @@ const Hero = () => {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          <span className="text-white">Full Stack</span>
+          <span className="text-white">{t('hero_title_1')}</span>
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-            Developer
+            {t('hero_title_2')}
           </span>
           <br />
-          <span className="text-gray-300 text-3xl md:text-4xl font-light">& Ethical Hacker</span>
+          <span className="text-gray-300 text-3xl md:text-4xl font-light">{t('hero_subtitle')}</span>
         </h1>
 
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Bridging the gap between <span className="text-blue-400 font-semibold">innovative development</span> and 
-          <span className="text-green-400 font-semibold"> cybersecurity expertise</span>. 
-          Building secure applications while thinking like an attacker.
+          {t('hero_description')
+            .replace('{{dev}}', `<span class="text-blue-400 font-semibold">${t('innovative_dev')}</span>`)
+            .replace('{{security}}', `<span class="text-green-400 font-semibold">${t('cybersecurity_expertise')}</span>`)
+            .split('\n').map((line, i) => (
+              <span key={i} dangerouslySetInnerHTML={{ __html: line }} className="block" />
+            ))
+          }
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -53,13 +58,13 @@ const Hero = () => {
             onClick={scrollToAbout}
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-blue-500/25"
           >
-            Explore My Work
+            {t('explore_work')}
           </button>
           <button 
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="px-8 py-4 border-2 border-green-500 text-green-400 font-semibold rounded-lg hover:bg-green-500 hover:text-white transform hover:scale-105 transition-all duration-200"
           >
-            Get In Touch
+            {t('get_in_touch')}
           </button>
         </div>
 

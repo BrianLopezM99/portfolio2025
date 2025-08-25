@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+    setCurrentLanguage(lng);
+  };
+
+  const toggleLanguage = () => {
+    const newLanguage = currentLanguage === 'en' ? 'es' : 'en';
+    changeLanguage(newLanguage);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,12 +27,12 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav_home'), href: '#home' },
+    { name: t('nav_about'), href: '#about' },
+    { name: t('nav_projects'), href: '#projects' },
+    { name: t('nav_skills'), href: '#skills' },
+    { name: t('nav_certifications'), href: '#certifications' },
+    { name: t('nav_contact'), href: '#contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -42,7 +55,7 @@ const Header = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -52,6 +65,15 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-gray-300 hover:text-blue-400 transition-colors duration-200 font-medium"
+              title={t('language')}
+              aria-label={t('language')}
+            >
+              <Globe size={18} />
+              <span className="text-sm">{currentLanguage.toUpperCase()}</span>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,6 +97,16 @@ const Header = () => {
                 {item.name}
               </button>
             ))}
+            <button
+              onClick={() => {
+                toggleLanguage();
+                setIsMenuOpen(false);
+              }}
+              className="flex items-center space-x-2 w-full text-left px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-gray-700/50 transition-colors duration-200"
+            >
+              <Globe size={18} />
+              <span>{t('language')}: {currentLanguage.toUpperCase()}</span>
+            </button>
           </div>
         )}
       </nav>

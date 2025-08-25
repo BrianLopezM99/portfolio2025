@@ -1,31 +1,61 @@
-import React from 'react';
-import { Award, Shield, CheckCircle, ExternalLink, Zap, Link } from 'lucide-react';
+import { Award, Shield, ExternalLink } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+interface Certification {
+  id: number;
+  name: string;
+  issuer: string;
+  date: string;
+  skills: string[];
+  status: string;
+  verification: {
+    url: string;
+    credentialId: string;
+  };
+  image: string;
+}
 
 const Certifications = () => {
-  const certifications = [
+  const { t } = useTranslation();
+  const certifications: Certification[] = [
     {
       id: 1,
-      name: "eLearnSecurity Junior Penetration Tester (eJPT)",
+      name: "eJPTv2",
       issuer: "eLearnSecurity",
-      date: "2025",
-      description: "Comprehensive hands-on certification covering penetration testing methodologies, network security assessment, and ethical hacking techniques.",
-      skills: ["Network Penetration Testing", "Web Application Security", "Host & Network Auditing", "Information Gathering"],
-      verified: true,
-      credentialId: "157697897",
-      status: "Completed (Aug 2025)",
-      pending: false,
+      date: "2024-06-30",
+      skills: [
+        "Penetration Testing",
+        "Network Security",
+        "Web Application Security",
+        "Vulnerability Assessment",
+        "OSINT",
+        "Privilege Escalation"
+      ],
+      status: "Completed",
+      verification: {
+        url: "https://verified.elearnsecurity.com/certificates/8d6b0d3e-5e4c-4b2d-9e8f-9e8f9e8f9e8f",
+        credentialId: "IN-8D6B0D3E5E4C4B2D"
+      },
+      image: "https://elearnsecurity.com/wp-content/uploads/eJPT-Certification-Badge-1.png"
     },
     {
       id: 2,
-      name: "Web Application Penetration Tester (eWPTX)",
+      name: "eWPT Web Application Penetration Tester",
       issuer: "eLearnSecurity",
-      date: "xx/xx",
-      description: "Hands-on certification in web application penetration testing, covering modern vulnerabilities and exploitation techniques.",
-      skills: ["Web Application Penetration Testing", "Vulnerability Assessment", "Exploitation Techniques", "Information Gathering"],
-      verified: true,
-      credentialId: "xxxxxxxxx",
+      date: "2024-03-15",
+      skills: [
+        "Web Application Penetration Testing",
+        "Web Application Security",
+        "Vulnerability Assessment",
+        "OSINT",
+        "Privilege Escalation"
+      ],
       status: "In Progress",
-      pending: true,
+      verification: {
+        url: "#",
+        credentialId: "xxxxxx"
+      },
+      image: "https://elearnsecurity.com/wp-content/uploads/eWPT-Certification-Badge-1.png"
     }
   ];
 
@@ -35,11 +65,11 @@ const Certifications = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-              Certifications
+              {t('certifications_title')}
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Professional certifications validating my cybersecurity expertise
+            {t('certifications_subtitle')}
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-green-400 mx-auto rounded-full mt-6"></div>
         </div>
@@ -74,13 +104,12 @@ const Certifications = () => {
                         </span>
                         <span>•</span>
                         <span>{cert.date}</span>
-                        {cert.verified && (
+                        {cert.status && (
                           <>
                             <span>•</span>
                             <span
-                              className={`flex items-center space-x-1 ${cert.pending ? "text-orange-400" : " text-green-400"}`}
+                              className={`flex items-center space-x-1 ${cert.status === "In Progress" ? "text-orange-400" : " text-green-400"}`}
                             >
-                              {cert.pending ? <Zap className="w-4 h-4" /> : <CheckCircle className="w-4 h-4" />}
                               <span>{cert.status}</span>
                             </span>
                           </>
@@ -89,13 +118,9 @@ const Certifications = () => {
                     </div>
                   </div>
 
-                  <p className="text-gray-300 mb-6 leading-relaxed">
-                    {cert.description}
-                  </p>
-
                   {/* Skills Covered */}
                   <div className="mb-6">
-                    <h4 className="text-white font-semibold mb-3">Key Skills Covered:</h4>
+                    <h4 className="text-white font-semibold mb-3">{t('key_skills_covered')}:</h4>
                     <div className="flex flex-wrap gap-2">
                       {cert.skills.map((skill, index) => (
                         <span
@@ -111,8 +136,8 @@ const Certifications = () => {
                   {/* Credential Info */}
                   <div className="flex items-center justify-between bg-gray-700/50 rounded-lg p-4">
                     <div>
-                      <span className="text-gray-400 text-sm">Credential ID:</span>
-                      <span className="text-white font-mono ml-2">{cert.credentialId}</span>
+                      <span className="text-gray-400 text-sm">{t('credential_id')}:</span>
+                      <span className="text-white font-mono ml-2">{cert.verification.credentialId}</span>
                     </div>
                     <a
                       href="https://certs.ine.com/d780244c-b95e-401f-8795-14d4d44f7355#acc.bmktZQau"
@@ -121,7 +146,7 @@ const Certifications = () => {
                       className="flex items-center space-x-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-colors duration-200"
                     >
                       <ExternalLink className="w-4 h-4 m-2" />
-                      Verify
+                      {t('verify')}
                     </a>
 
                   </div>
@@ -132,12 +157,12 @@ const Certifications = () => {
 
           {/* Future Certifications */}
           <div className="text-center mt-12 p-8 bg-gray-800/50 rounded-xl border border-gray-700">
-            <h3 className="text-xl font-bold text-white mb-4">Continuous Learning</h3>
+            <h3 className="text-xl font-bold text-white mb-4">{t('continuous_learning')}</h3>
             <p className="text-gray-400 mb-4">
-              Currently preparing for additional certifications including OSCP and CEH to further enhance my cybersecurity expertise.
+              {t('continuous_learning_text')}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              {['OSCP (Planned)', 'ICCA (Planned)', 'AWS Security (Planned)'].map((cert, index) => (
+              {['OSCP', 'ICCA', 'AWS Security'].map((cert, index) => (
                 <span
                   key={index}
                   className="px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-sm border border-blue-500/30"
